@@ -45,7 +45,7 @@ namespace FHB_BLL.Services.AuthenticationServices
                     };
                 }
 
-                return new ApiResponse<bool>(true);
+          
             }
             catch (Exception ex)
             {

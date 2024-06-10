@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using FHB_BLL.Wrapping.Exceptions;
 using FHB_DAL.Repositories.GenericRepository;
+
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FHB_BLL.Services.GenericServices
 {
@@ -34,6 +36,7 @@ namespace FHB_BLL.Services.GenericServices
                 response.Success = false;
                 response.ErrorMessage = ex.Message;
                 response.ReasonPhrase = "Error occurred during operation";
+                throw new ValidationException(ex.Message);
             }
             return response;
         }
@@ -53,6 +56,7 @@ namespace FHB_BLL.Services.GenericServices
                 response.Success = false;
                 response.ErrorMessage = ex.Message;
                 response.ReasonPhrase = "Error occurred during operation";
+                throw new ValidationException(ex.Message);
             }
             return response;
         }
@@ -73,6 +77,7 @@ namespace FHB_BLL.Services.GenericServices
                 response.Success = false;
                 response.ErrorMessage = ex.Message;
                 response.ReasonPhrase = "Error occurred during operation";
+                throw new ValidationException(ex.Message);
             }
             return response;
         }
@@ -93,6 +98,7 @@ namespace FHB_BLL.Services.GenericServices
                 response.Success = false;
                 response.ErrorMessage = ex.Message;
                 response.ReasonPhrase = "Error occurred during operation";
+                throw new ValidationException(ex.Message);
             }
             return response;
         }
@@ -111,6 +117,7 @@ namespace FHB_BLL.Services.GenericServices
                 response.Success = false;
                 response.ErrorMessage = ex.Message;
                 response.ReasonPhrase = "Error occurred during operation";
+                throw new ValidationException(ex.Message);
             }
             return response;
         }
@@ -130,6 +137,7 @@ namespace FHB_BLL.Services.GenericServices
                 response.Success = false;
                 response.ErrorMessage = ex.Message;
                 response.ReasonPhrase = "Error occurred during operation";
+                throw new ValidationException(ex.Message);
             }
             return response;
         }

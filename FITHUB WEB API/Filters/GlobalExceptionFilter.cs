@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
 
 namespace FITHUB_WEB_API.Filters
 {
@@ -8,9 +7,12 @@ namespace FITHUB_WEB_API.Filters
     {
         public void OnException(ExceptionContext context)
         {
-
-
-            var statusCode = 404;
+            var statusCode = context.Exception switch
+            {
+                ValidationException => StatusCodes.Status400BadRequest,
+                NotFoundException => StatusCodes.Status404NotFound,
+                _ => StatusCodes.Status400BadRequest // Default to 400 for any other exceptions
+            };
 
             context.Result = new ObjectResult(new
             {
@@ -21,11 +23,7 @@ namespace FITHUB_WEB_API.Filters
                 StatusCode = statusCode
             };
 
-
+            context.ExceptionHandled = true; // Mark the exception as handled
         }
-
-
-
-
     }
 }

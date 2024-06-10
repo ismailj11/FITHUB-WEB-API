@@ -1,4 +1,5 @@
 ﻿using FHB_DAL.Models;
+using FITHUB_WEB_API.Filters;
 using Microsoft.EntityFrameworkCore;
 
 namespace FITHUB_WEB_API.Extensions
@@ -14,8 +15,21 @@ namespace FITHUB_WEB_API.Extensions
             service.AddDbContext<FithubDbContext>(options =>
                             options.UseSqlServer(ConnectionString)
 
-                            );
 
+
+
+
+
+
+
+                            ) ;
+
+
+
+
+
+
+         
 
             return service;
 
@@ -23,6 +37,8 @@ namespace FITHUB_WEB_API.Extensions
 
 
         }
+
+
 
 
     }

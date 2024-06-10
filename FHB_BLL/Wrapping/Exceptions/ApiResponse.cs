@@ -16,7 +16,7 @@ namespace FHB_BLL.Wrapping.Exceptions
         public string ErrorMessage { get; set; }
 
 
-        public string ReasonPhrase { get; set; } // Property for reason phrase
+        public string ReasonPhrase { get; set; }
         public ApiResponse()
         {
             Success = true;

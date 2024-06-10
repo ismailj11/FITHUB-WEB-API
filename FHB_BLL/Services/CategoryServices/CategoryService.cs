@@ -25,6 +25,7 @@ namespace FHB_BLL.Services.CategoryServices
             _mapper = mapper;
             _categoryRepository = categoryRepository;
             _productRepository = productRepository;
+                
         }
 
         public ApiResponse<CategoryDto> GetCategoryByName(string name)
@@ -43,12 +44,7 @@ namespace FHB_BLL.Services.CategoryServices
             {
                 try
                 {
-                    if (string.IsNullOrEmpty(dto.CategoryName))
-                    {
-                        response.Success = false;
-                        response.ErrorMessage = "Category name is null or empty";
-                        return response;
-                    }
+                    
 
                     // Add the category
                     var category = new Category { CategoryName = dto.CategoryName };
@@ -66,7 +62,7 @@ namespace FHB_BLL.Services.CategoryServices
                         {
                             response.Errors.Add($"Product price for '{product.ProductName}' cannot be less than zero");
                             response.Success = false;
-                            throw new Exception($"Product price for '{product.ProductName}' cannot be less than zero");
+                            return response;
                         }
 
                         product.FkCategoryId = categoryId; // Set the foreign key
@@ -78,7 +74,7 @@ namespace FHB_BLL.Services.CategoryServices
                     // Mark the transaction as complete
                     scope.Complete();
 
-                    // Map back to DTOs to include the generated IDs
+                    // New ids
                     var createdCategoryDto = _mapper.Map<CategoryWithProductsDto>(category);
                     createdCategoryDto.Products = _mapper.Map<List<ProductDto>>(products);
 

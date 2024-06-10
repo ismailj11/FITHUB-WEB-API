@@ -23,6 +23,8 @@ namespace FITHUB_WEB_API.Controllers
         public ApiResponse<CategoryDto> GetCategoryByNames(string name)
         {
             return _categoryService.GetCategoryByName(name);
+
+
         }
 
 

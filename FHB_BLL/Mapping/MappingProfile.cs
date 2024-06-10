@@ -36,7 +36,7 @@ namespace FHB_BLL.Mapping
             CreateMap<Member, MemberDto>().ReverseMap();
             CreateMap<Category, CategoryWithProductsDto>();
 
-            CreateMap<CategoryWithProductsDto,Category>();
+            
             CreateMap<CategoryWithProductsDto,IEnumerable<ProductDto>>();
 
         }

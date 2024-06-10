@@ -9,6 +9,7 @@ using FHB_DAL.Repositories.Products;
 using FHB_DAL.Repositories.Tenants;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,12 @@ namespace FHB_BLL.Services.ProductServices
             var response = new ApiResponse<ProductDto>();
             var result = _productRepository.GetProductByProductName(name);
             response.Data = _mapper.Map<ProductDto>(result);
+
+           
+
             return response;
+                
+           
         }
 
         public ApiResponse<IEnumerable<ProductDto>> GetProductByCategoryID(int categoryID)
